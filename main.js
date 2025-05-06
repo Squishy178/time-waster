@@ -17,6 +17,7 @@ var milestones=[
         txt:function(i){return 'You have clicked <b>'+i+'</b> times'},
     },
 ]
+var totalMilestones=0;
 function unlock(i){
     if (!unlocked.includes(i)){
         unlocked.push(i);
@@ -31,6 +32,7 @@ function updateMilestones(item,variable){
     if (variable>=value){
         log.push("<span style='color:gray'>"+i.txt(value)+"</span>");
         i.unlocked++;
+        totalMilestones++;
     }
         
         
@@ -49,6 +51,7 @@ function tick(){
     document.querySelector('#getajob').innerHTML='Amount of money that you could have been earning if you had a job: $'+Math.floor(100*9.2*time/3600)/100;
     document.querySelector('#total').innerHTML='Total clicks clicked: '+clicks;
     document.querySelector('#percent').innerHTML='Percent of your estimated life wasted: '+Math.floor(10000000*time/3600/24/365/80)/100000+'%';
+    document.querySelector('#complete').innerHTML='Achievements completed: '+Math.floor(1000*(unlocked.length/achievementData.length))/10+'% ('+unlocked.length+' out of '+achievementData.length+')';
     let str=''
     let offset=Math.max(0,log.length-7)
     for (i=0;i<Math.min(7,log.length);i++){

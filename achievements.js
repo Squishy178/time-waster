@@ -56,7 +56,7 @@ const achievementData=[
     },
     {//11
         name:'Big Mac',
-        desc:'Burn 500 calories from clicking (roughly the amount a big mac has)',
+        desc:'Burn 250 calories from clicking (roughly half the amount a big mac has)',
         cond:function(){return clicks*0.00142857142>=500}
     },
     {//12
@@ -65,8 +65,58 @@ const achievementData=[
         cond:function(){return false}
     },
     {//13
-        name:'',
-        desc:'Click the ? a second time',
+        name:'Minimum Wage',
+        desc:'Lose $9.20',
+        cond:function(){return Math.floor(100*9.2*time/3600)/100>=9.2}
+    },
+    {//14
+        name:'What is the cause?',
+        desc:'Witness 500 deaths. What is even happening?!',
+        cond:function(){return Math.floor(1.73611111111*time)>=500}
+    },
+    {//15
+        name:'Feeling old yet?',
+        desc:'Play the game for more than one hour',
+        cond:function(){return time/3600>=1}
+    },
+    {//16
+        name:'Gotta catch them all',
+        desc:'Collect 10 achievements',
+        cond:function(){return unlocked.length>=10}
+    },
+    {//17
+        name:'Nice',
+        desc:'All but this achievement',
+        cond:function(){return unlocked.length-1==achievementData.length}
+    },
+    {//18
+        name:'What have we found...',
+        desc:'Uncover dark secrets',
         cond:function(){return false}
+    },
+    {//19
+        name:'Last on earth. Not',
+        desc:'Witness 7 billion deaths',
+        cond:function(){return Math.floor(1.73611111111*time)>=7000000000}
+    },
+    {//20
+        name:'Milestone Novice',
+        desc:'Get 10 milestones',
+        cond:function(){return totalMilestones>=10}
+    },
+    {//21
+        name:'Milestone Knight',
+        desc:'Get 20 milestones',
+        cond:function(){return totalMilestones>=20}
+    },
+    {//22
+        name:'Milestone Master',
+        desc:'Get 30 milestones',
+        cond:function(){return totalMilestones>=30}
+    },
+    {//23
+        name:'Milestone Grandmaster',
+        desc:'Get 50 milestones',
+        cond:function(){return totalMilestones>=50}
     },
 ]

@@ -39,7 +39,14 @@ function updateMilestones(item,variable){
 }
 function clickButton(){
     clicks+=1;
-    if (clicks==3) log.push("<span style='color:gray'>Nice try, but there is no achievement for 3 clicks</span>")
+    if (clicks==3) log.push("<span style='color:gray'>Nice try, but there is no achievement for 3 clicks</span>");
+    if (clicks>3){
+        if (Math.random()<0.005) unlock(24);
+        if (Math.random()<0.001) unlock(25);
+        if (Math.random()<0.0005) unlock(26); 
+        if (Math.random()<0.0001) unlock(27);
+        if (Math.random()<0.00005) unlock(28);
+    }
 }
 function tick(){
     document.querySelector('#clicks').innerHTML='Estimated Calories Burned: '+clicks*0.00142857142;

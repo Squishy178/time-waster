@@ -119,4 +119,29 @@ const achievementData=[
         desc:'Get 50 milestones',
         cond:function(){return totalMilestones>=50}
     },
+    {//24
+        name:'Barely Lucky',
+        desc:'Click and get lucky (0.5%)',
+        cond:function(){return false}
+    },
+    {//25
+        name:'Lucky',
+        desc:'Click and get lucky (0.1%)',
+        cond:function(){return false}
+    },
+    {//26
+        name:'Quite Lucky',
+        desc:'Click and get lucky (0.05%)',
+        cond:function(){return false}
+    },
+    {//27
+        name:'Very Lucky',
+        desc:'Click and get lucky (0.01%)',
+        cond:function(){return false}
+    },
+    {//28
+        name:'Luck in its Essence',
+        desc:'Click and get lucky (0.005%)',
+        cond:function(){return false}
+    },
 ]

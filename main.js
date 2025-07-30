@@ -1,7 +1,7 @@
 var clicks=0;
 var time=0;
 var log=['Welcome to the <b>Time Waster</b>','Click on the "click" button to start']
-    
+var timestart = Date.now()  
 var unlocked=[];
 var milestones=[
     {
@@ -41,11 +41,13 @@ function clickButton(){
     clicks+=1;
     if (clicks==3) log.push("<span style='color:gray'>Nice try, but there is no achievement for 3 clicks</span>");
     if (clicks>3){
-        if (Math.random()<0.005) unlock(24);
-        if (Math.random()<0.001) unlock(25);
-        if (Math.random()<0.0005) unlock(26); 
-        if (Math.random()<0.0001) unlock(27);
-        if (Math.random()<0.00005) unlock(28);
+        let amt = 0
+        if (Math.random()<0.005) unlock(24); amt++;
+        if (Math.random()<0.001) unlock(25); amt++;
+        if (Math.random()<0.0005) unlock(26); amt++;
+        if (Math.random()<0.0001) unlock(27); amt++;
+        if (Math.random()<0.00005) unlock(28); amt++;
+        if (amt>1) unlock(29);
     }
 }
 function tick(){
@@ -67,16 +69,27 @@ function tick(){
     }
     document.querySelector('#commentary').innerHTML=str;
 
+    let str='';
+    for (i = 0; i < achievementData.length; i++){
+        str += '<img src="secret1.png" style="width:50px;height:50px;">'
+
+    }
+    document.getElementById('unlocks').innerHTML = str;
+
+
+
+
 
     for (i=0; i<achievementData.length; i++){    
         if (achievementData[i].cond()) unlock(i);
+        //This script runs through all of the achievements and checks if they are unlocked
     }
     updateMilestones(0,Math.floor(1.73611111111*time));
     updateMilestones(1,clicks);
 
 
-    time+=1/60;
+    time = Date.now() - timestart;
 
 }
 
-setInterval(tick,1000/60)
+setInterval(tick,1000/60) // 60 fps. I think

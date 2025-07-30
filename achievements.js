@@ -144,4 +144,10 @@ const achievementData=[
         desc:'Click and get lucky (0.005%)',
         cond:function(){return false}
     },
+    {//29
+        name:'Stars Aligned',
+        desc:'Gain 2 "Lucky" achievements with one click',
+        cond:function(){return false},
+        tags:['secret'],
+    },
 ]

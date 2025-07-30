@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Waster</title>
+    <title>Time Waster (Beta 1.0)</title>
 </head>
 <body>
-    <div id="commentary" class="commentary">
+    <div>
+        <div id="commentary" class="commentary">
+        </div>
+        <div id = "unlocks" class = "unlocks" style="position: relative; left: 500px; top: -149px;">
+
+
+        </div>
     </div>
     <div onclick="unlock(3)" class="commentary" style="position:absolute;top:6px;opacity: 0;"></div>
     <button class="prevent-select" onclick="clickButton()" id="button">Click</button>
@@ -23,7 +29,6 @@
     <br>
     <p id="complete"></p>
     <img onclick="if (unlocked.includes(4)){unlock(12)}else{unlock(4)}" src="secret1.png" style="width:30px;position:absolute;right:0px;bottom:0px;">
-    
 </body>
 <style>
     .commentary{
@@ -33,7 +38,14 @@
         width:480px;
         height:145px;
         border-color:slategray;
-
+    }
+    .unlocks{
+        border-width: 2px;
+        border-radius: 1px;
+        border-style: solid;
+        width: 240px;
+        height: 360px;
+        border-color: slategray;
     }
     .txt{
         margin-top:1px;
@@ -51,5 +63,5 @@
     }
 </style>
 <script src="achievements.js" defer></script>
-<script src="main.js" defer></script>
+<script src="main.js"></script>
 </html>

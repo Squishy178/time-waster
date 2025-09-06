@@ -9,26 +9,57 @@
     <div>
         <div id="commentary" class="commentary">
         </div>
-        <div id = "unlocks" class = "unlocks" style="position: relative; left: 500px; top: -149px;">
 
 
         </div>
     </div>
     <div onclick="unlock(3)" class="commentary" style="position:absolute;top:6px;opacity: 0;"></div>
-    <button class="prevent-select" onclick="clickButton()" id="button">Click</button>
-    <p id="total"></p>
-    <p id="clicks"></p>
-    <p id="breath"></p>
-    <p id="death"></p>
-
-    <p id="time"></p>
-
-    <p id="getajob"></p>
     
-    <p id="percent"></p>
-    <br>
-    <p id="complete"></p>
+    <div class="border">
+        <button class="prevent-select" onclick="clickButton()" id="button">Click</button>
+        
+
+        <p id="total"></p>
+        <p id="clicks"></p>
+        <p id="breath"></p>
+        <p id="death"></p>
+
+        <p id="time"></p>
+
+        <p id="getajob"></p>
+        
+        <p id="percent"></p>
+        <br>
+        
+
+        
+        <div id="patch">
+            <h4 class="txt" style="color:slategrey">Patch notes: 1.2</h4>
+            <p class="txt" style="color:slategrey">- Added patch notes  :)</p>
+            <p class="txt" style="color:slategrey">- Added a few more achievements. More never hurt!</p>
+            <p class="txt" style="color:slategrey">- Holding enter will no longer click for you. Sorry</p>
+            <p class="txt" style="color:slategrey">- "Secret" Achievements will not count towards your completion %</p>
+            <p class="txt" style="color:slategrey">- Added a full tab system. The UNLOCKS and SETTINGS tab will be expanded later!</p>
+            <p class="txt" style="color:slategrey">- Added a visual rework to the main interface</p>
+            
+
+            <br><br>
+            <b class="txt" style="color:slategrey">Patch notes: 1.1</b>
+            <p class="txt" style="color:slategrey">- Added achievements</p>
+
+            <br><br>
+            <b class="txt" style="color:slategrey">Patch notes: 1.0</b>
+            <p class="txt" style="color:slategrey">- Game "release"</p>
+        </div>
+        <canvas id="unlocks" width="480" height="570"></canvas>
+        
+    </div>
+    <button onclick="tab=1;" id="tab1" class="tab">Statistics</button>
+    <button onclick="tab=2;unlock(18);" id="tab2" class="tab">Unlocks</button>
+    <button onclick="tab=3;" id="tab3" class="tab">Patch notes</button>
+    <button onclick="tab=4;" id="tab4" class="tab">Settings</button>
     <img onclick="if (unlocked.includes(4)){unlock(12)}else{unlock(4)}" src="secret1.png" style="width:30px;position:absolute;right:0px;bottom:0px;">
+    <p id="complete"></p>
 </body>
 <style>
     .commentary{
@@ -39,14 +70,6 @@
         height:145px;
         border-color:slategray;
     }
-    .unlocks{
-        border-width: 2px;
-        border-radius: 1px;
-        border-style: solid;
-        width: 240px;
-        height: 360px;
-        border-color: slategray;
-    }
     .txt{
         margin-top:1px;
         margin-bottom:1px;
@@ -56,11 +79,79 @@
         padding:3px;
         padding-right:6px;
         padding-left: 6px;
-        user-select: none; /* Standard syntax */
-        -webkit-user-select: none; /* Safari */
-        -ms-user-select: none; /* IE 10 and IE 11 */
-        
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
+    .border{
+        border-width: 2px;
+        border-radius: 1px;
+        border-style: solid;
+        width:480px;
+        height:570px;
+        border-color:rgb(167, 167, 167);
+        position: relative;
+        top:-1px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    .unlocks{
+        width:480px;
+        height:570px;
+        position: relative;
+        top:10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .tab{
+        border-top-width: 0px;
+        background-color: white;
+        padding-right:12px;
+        padding-left:12px;
+        padding-bottom:6px;
+        padding-top:8px;
+        position: relative;
+        top:-2px;
+        border-color:rgb(167, 167, 167);
+        border-style:solid;
+    }
+    .tab-closed{
+        border-top-width: 4px;
+        background-color: rgb(207, 207, 207);
+        padding-right:12px;
+        padding-left:12px;
+        padding-bottom:6px;
+        padding-top:0px;
+        position: relative;
+        top:-7px;
+        border-color:rgb(167, 167, 167);
+        border-style:solid;
+    }
+    .achievement{
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        border-width: 4px;
+        border-style:outset;
+        border-color:white;
+        padding:0px;
+        margin:0px;
+        position: relative;
+        background-color:white;
+    }
+    .achievement-locked{
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        border-width: 4px;
+        border-style:inset;
+        border-color:gray;
+        padding:0px;
+        margin:0px;
+        position: relative;
+        background-color:gray;
+    }
+    
 </style>
 <script src="achievements.js" defer></script>
 <script src="main.js"></script>
